@@ -1,6 +1,7 @@
 
-const greet = (name: string): string => {
-	return `hi ${ name }!`;
-}
 
-console.log(greet('miki'));
+import { readInput } from "../utils/index.ts";
+
+const text = await readInput('input.txt');
+
+console.log('text', text);
