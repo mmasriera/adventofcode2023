@@ -3,12 +3,12 @@
 import { readInput } from "../utils/index.ts";
 
 const getCalibrationValue = (line: string): number => {
-	const numbers = Array.from(line).filter(char => !isNaN(char));	
+	const numbers = Array.from(line).map(Number).filter(n => !isNaN(n));
 
-	const firstValue = numbers.shift() || '0';
-	const lastValue = numbers.pop() || firstValue || '0';
+	const first= numbers.shift() || 0;
+	const last = numbers.pop() || first || 0;
 
-	return Number(firstValue + lastValue);
+	return (first * 10) + last;
 }
 
 const text = await readInput('input.txt');
