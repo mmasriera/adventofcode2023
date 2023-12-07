@@ -1,5 +1,5 @@
 
-import { readInputLines } from "../utils/index.ts";
+import { readInputLines } from '../utils/index.ts';
 
 const MATCHER: Record<string, { name: string, value: number }> = {
 	'on': { name: 'one', value: 1 },

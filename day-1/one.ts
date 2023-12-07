@@ -1,5 +1,5 @@
 
-import { readInputLines } from "../utils/index.ts";
+import { readInputLines } from '../utils/index.ts';
 
 const getCalibrationValue = (line: string): number => {
 	const numbers = Array.from(line).map(Number).filter(n => !isNaN(n));
