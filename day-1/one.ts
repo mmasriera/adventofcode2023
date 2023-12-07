@@ -1,5 +1,4 @@
 
-
 import { readInputLines } from "../utils/index.ts";
 
 const getCalibrationValue = (line: string): number => {
