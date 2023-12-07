@@ -1,5 +1,5 @@
 
-import { readInputLines } from "../utils/index.ts";
+import { readInputLines } from '../utils/index.ts';
 
 const MATCHER: Record<string, { name: string, value: number }> = {
 	'on': { name: 'one', value: 1 },
@@ -49,5 +49,5 @@ for (const line of lines) {
 	result += getCalibrationValue(line);
 }
 
-console.log(`-> result: ${ result }`);
+console.log(`-> answer: ${ result }`);
 // solution 54940
