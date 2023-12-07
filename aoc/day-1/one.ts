@@ -1,6 +1,6 @@
 
 
-import { readInput } from "../utils/index.ts";
+import { readInputLines } from "../utils/index.ts";
 
 const getCalibrationValue = (line: string): number => {
 	const numbers = Array.from(line).map(Number).filter(n => !isNaN(n));
@@ -11,8 +11,7 @@ const getCalibrationValue = (line: string): number => {
 	return (first * 10) + last;
 }
 
-const text = await readInput('input.txt');
-const lines = text.split('\n');
+const lines = await readInputLines('input.txt');
 
 let result = 0;
 
