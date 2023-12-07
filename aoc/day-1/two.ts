@@ -1,12 +1,7 @@
 
 import { readInputLines } from "../utils/index.ts";
 
-type NumberInfo = {
-	name: string;
-	value: number
-}
-
-const MATCHER: Record<string, NumberInfo> = {
+const MATCHER: Record<string, { name: string, value: number }> = {
 	'on': { name: 'one', value: 1 },
 	'tw': { name: 'two', value: 2 },
 	'th': { name: 'three', value: 3 },
@@ -24,25 +19,22 @@ const getCalibrationValue = (line: string): number => {
 
 	for (let i = 0; i < line.length; i += 1) {
 		const char = line[i];
-		const numberValue = Number(char);
+		let value = Number(char);
 
-		// is number?
-		if (!isNaN(numberValue)) {
-			if (!first) {
-				first = numberValue;
-			}
-
-			last = numberValue;
-		} else {
+		if (isNaN(value)) { // look for the number word
 			const match = MATCHER[char + line[i + 1]];			
 			// check if the whole number word matches
 			if (match && (line.substring(i, i + match.name.length) === match.name)) {
-				if (!first) {
-					first = match.value;
-				}
-	
-				last = match.value;
+				value = match.value
 			}
+		}
+
+		if (value) {
+			if (!first) {
+				first = value;
+			}
+	
+			last = value;
 		}
 	}
 
