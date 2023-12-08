@@ -50,4 +50,4 @@ for (const line of lines) {
 }
 
 console.log(`-> answer: ${ result }`);
-// solution 54940
+// solution 54208
