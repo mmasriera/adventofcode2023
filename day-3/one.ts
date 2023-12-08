@@ -23,6 +23,9 @@ lines.forEach((line, lineIdx) => {
 
 		if (hasAdjacent(lineIdx, startIdx - 1, endIdx + 1)) { // +-1 to get diagonals
 			result += Number(num);
+		} else {
+			console.log(num);
+			
 		}
 	});
 });
