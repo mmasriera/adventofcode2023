@@ -33,5 +33,4 @@ for (const line of lines) {
 	};
 }
 
-console.log(`-> answer: ${ result }`);
-// solution 2528
+console.log(`-> answer: ${ result }`); // 2528

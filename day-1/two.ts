@@ -49,5 +49,4 @@ for (const line of lines) {
 	result += getCalibrationValue(line);
 }
 
-console.log(`-> answer: ${ result }`);
-// solution 54208
+console.log(`-> answer: ${ result }`); // 54208

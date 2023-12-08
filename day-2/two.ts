@@ -35,5 +35,4 @@ for (const line of lines) {
 	result += cubesSetPower(game);
 }
 
-console.log(`-> answer: ${ result }`);
-// solution 67363
+console.log(`-> answer: ${ result }`); // 67363
