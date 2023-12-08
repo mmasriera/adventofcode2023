@@ -6,7 +6,7 @@ const SYMBOL_REGEX = /[^.\d]/;
 
 const hasAdjacent = (lineIdx: number, start: number, end: number): boolean => {
 	const prev = lines[lineIdx - 1]?.substring(start, end) || '';
-	const curr = lines[lineIdx]?.substring(start, end) || '';
+	const curr = lines[lineIdx].substring(start, end) || '';
 	const next = lines[lineIdx + 1]?.substring(start, end) || '';
 	
 	return SYMBOL_REGEX.test(prev + curr + next); // check in all surrounding chars
@@ -27,4 +27,5 @@ lines.forEach((line, lineIdx) => {
 	});
 });
 
-console.log(`-> answer: ${ result }`); // 535294 is too high - 353012 is too low
+console.log(`-> answer: ${ result }`); // 535294 is too high - 532140 is too low
+
