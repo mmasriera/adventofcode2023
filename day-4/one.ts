@@ -21,11 +21,11 @@ for (const line of lines) {
 		.split(' | ')
 		.map(numbers => numbers.match(/\d+/g)!.map(Number));
 
-	const matchesCount = countMatches(winning, candidates);
+	const matchesCount = countMatches(winning, candidates);	
 
 	if (matchesCount) {
 		result += Math.pow(2, matchesCount - 1);
 	}
 }
 
-console.log(`-> answer: ${ result }`); // x
+console.log(`-> answer: ${ result }`); // 25004
