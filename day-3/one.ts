@@ -27,5 +27,4 @@ lines.forEach((line, lineIdx) => {
 	});
 });
 
-console.log(`-> answer: ${ result }`); // 535294 is too high - 532140 is too low
-
+console.log(`-> answer: ${ result }`); // 535294
