@@ -11,7 +11,7 @@ type Range = {
 	this will be used to memoize the results so there's no neeed to compute the seed2location
 	for previously calculated seeds
 */
-const seed2locationMap: Record<number, number> = {};
+// const seed2locationMap: Record<number, number> = {};
 
 const maps: Record<string, Range[]> = {
 	'seed-to-soil map:': [],
@@ -85,15 +85,17 @@ let result = Number.MAX_SAFE_INTEGER;
 seedRanges.map(([start, amount]) => {
 	console.log([start, amount]);
 	
-	for (let i = start; i < (start + amount); i += 1) {
-		// console.log(i);
+	// for (let i = start; i < (start + amount); i += 1) {
+	// 	// console.log(i);
 		
-		if (!seed2locationMap[i]) {
-			seed2locationMap[i] = getSeedLocation(i);
-		}
+	// 	// if (!seed2locationMap[i]) {
+	// 	// 	seed2locationMap[i] = getSeedLocation(i);
+	// 	// }
 
-		result = Math.min(result, seed2locationMap[i]);
-	}
+	// 	result = Math.min(result, getSeedLocation(i));
+	// }
 });
+
+console.log(maps);
 
 console.log(`-> answer: ${ result }`);
