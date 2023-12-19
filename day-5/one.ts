@@ -26,6 +26,6 @@ const getLocation = (seed: number): number => {
 	return value;
 }
 
-let result = Math.min(...seeds.map(getLocation));
+const result = Math.min(...seeds.map(getLocation));
 
 console.log(`-> answer: ${ result }`); // 389056265
