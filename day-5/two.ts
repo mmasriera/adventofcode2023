@@ -28,7 +28,7 @@ const getLocation = (seed: number): number => {
 	return value;
 }
 
-let result = Math.min(...seedRanges.map(([start, size]) => {
+const result = Math.min(...seedRanges.map(([start, size]) => {
 	let min = Number.MAX_SAFE_INTEGER;
 
 	for (let i = start; i < start + size; i += 1) {
