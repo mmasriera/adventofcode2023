@@ -4,27 +4,30 @@ import { readInputLines } from '../utils/index.ts';
 const NUMBERS_REGEX = /\d+/g;
 const SYMBOL_REGEX = /[^.\d]/;
 
-const hasAdjacent = (lineIdx: number, start: number, end: number): boolean => {
-	const prev = lines[lineIdx - 1]?.substring(start, end) || '';
-	const curr = lines[lineIdx].substring(start, end) || '';
-	const next = lines[lineIdx + 1]?.substring(start, end) || '';
-	
-	return SYMBOL_REGEX.test(prev + curr + next); // check in all surrounding chars
-};
-
-const lines = await readInputLines('./inputTEST.txt');
+const lines = await readInputLines('./input.txt');
 let result = 0;
 
-lines.forEach((line, lineIdx) => {
-	line.match(NUMBERS_REGEX)?.forEach(num => {
-		// for each number
-		const startIdx = line.indexOf(num);
-		const endIdx = startIdx + num.length;
+lines.forEach((line: string, i: number) => {	
+	Array.from(line.matchAll(NUMBERS_REGEX)).forEach(match => {		
+		for (let j = match.index; j < match.index + match[0].length; j += 1) {
+			const surrounding = [
+				(lines[i - 1] ?? '')[j - 1] ?? '.',
+				(lines[i - 1] ?? '')[j] ?? '.',
+				(lines[i - 1] ?? '')[j + 1] ?? '.',
+				(lines[i] ?? '')[j - 1] ?? '.',
+				(lines[i] ?? '')[j] ?? '.',
+				(lines[i] ?? '')[j + 1] ?? '.',
+				(lines[i + 1] ?? '')[j - 1] ?? '.',
+				(lines[i + 1] ?? '')[j] ?? '.',
+				(lines[i + 1] ?? '')[j + 1] ?? '.'
+			];
 
-		if (hasAdjacent(lineIdx, startIdx - 1, endIdx + 1)) { // +-1 to get diagonals
-			result += Number(num);
-		}
+			if (surrounding.some(x => SYMBOL_REGEX.test(x))) {
+				result += parseInt(match[0]);
+				break;
+			}
+        }
 	});
 });
 
-console.log(`-> answer: ${ result }`); // 535294
+console.log(`-> answer: ${ result }`); // 535078
